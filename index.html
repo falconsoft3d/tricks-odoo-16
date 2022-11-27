@@ -11,10 +11,11 @@
 <link rel="alternate" type="application/rss+xml" title="frittt.com" href="feed/index.html">
 <link rel="stylesheet" href="css/style.css">
 <meta name="google-site-verification" content="6SJfppWH73AwMKg9GAzWM4Htzr0i60eHL0H3PAvv7cw" />
- 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-<link rel="stylesheet" href="css/dracula.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script> 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+
 <script>hljs.initHighlightingOnLoad();</script>
 </head>
  
@@ -68,14 +69,14 @@
      
 <p><strong>- Update System</strong></p>
 <pre>
-<code class="python">
+<code class="bash">
 apt-get update && apt-get upgrade -y
 </code>
 </pre>
 
 <p><strong>- Install Odoo from nightly</strong></p>
 <pre>
-<code class="python">
+<code class="bash">
 wget -O - https://nightly.odoo.com/odoo.key | apt-key add -
 echo "deb http://nightly.odoo.com/16.0/nightly/deb/ ./" >> /etc/apt/sources.list
 apt-get update && apt-get install odoo
@@ -85,7 +86,7 @@ apt-get update && apt-get install odoo
 
 <p><strong>- Install nginx</strong></p>
 <pre>
-<code class="python">
+<code class="bash">
 sudo apt-get install nginx -y
 cd /etc/nginx/sites-available
 git clone https://github.com/falconsoft3d/ngix-para-odoo-erp/
@@ -105,7 +106,7 @@ nginx -s reload
 
 <p><strong>- Create folder for addons</strong></p>
 <pre>
-<code class="python">
+<code class="bash">
 mkdir /opt/extra-addons
 chown odoo: /opt/extra-addons/ -R
 </code>
@@ -113,7 +114,7 @@ chown odoo: /opt/extra-addons/ -R
 
 <p><strong>- Create folder for backup</strong></p>
 <pre>
-<code class="python">
+<code class="bash">
 mkdir /opt/backup
 chown odoo: /opt/backup/ -R
 </code>
