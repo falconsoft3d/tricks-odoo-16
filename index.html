@@ -83,6 +83,7 @@
       <li><a href="#onchange" class="cc-active">Onchange function</a></li>
       
       <li><strong>Other</strong></li>
+      <li><a href="#shell" class="cc-active">Shell Odoo</a></li>
       <li><a href="#about" class="cc-active">About me</a></li>
     </ul>
 
@@ -308,6 +309,32 @@ def _onchange_name(self):
 git clone https://github.com/falconsoft3d/docker-odoo-16.git
 de docker-odoo-16
 docker-compose up -d
+</code>
+</pre>
+<!-- END -->
+
+
+<!-- BEGIN -->
+<h3 id="shell">Shell Odoo</h3> 
+<pre>
+<code class="bash">
+/etc/init.d/odoo stop
+su - odoo -s /bin/bash
+odoo shell -d db11-spain
+  
+mod=env['ir.module.module'].search([('name','=','purchase_request')])
+print(mod)
+
+products=env['product.template'].search([('type', '=', 'consu')])
+for product in products:
+    try:
+        print(product.id)
+        print('Modificando')
+        product.type = 'product'
+    except:
+        print('error')
+env.cr.commit()
+/etc/init.d/odoo start
 </code>
 </pre>
 <!-- END -->
