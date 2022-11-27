@@ -123,6 +123,33 @@ mkdir /opt/backup
 chown odoo: /opt/backup/ -R
 </code>
 </pre>
+
+
+<p><strong>- Install https for nginx<strong></p>
+<pre>
+<code class="bash">
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python3-certbot-nginx
+sudo certbot --nginx
+-A
+- 2
+
+Change this configuration in param in odoo.
+  
+web.base.url
+http -> https
+  
+web.base.url.freeze
+True
+</code>
+</pre>
+
+
+
+
 <!-- END -->
 
 <!-- BEGIN -->
