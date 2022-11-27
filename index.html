@@ -83,6 +83,7 @@
       <li><a href="#onchange" class="cc-active">Onchange function</a></li>
       
       <li><strong>Other</strong></li>
+      <li><a href="#pip" class="cc-active">Pip library</a></li>
       <li><a href="#shell" class="cc-active">Shell Odoo</a></li>
       <li><a href="#about" class="cc-active">About me</a></li>
     </ul>
@@ -247,8 +248,7 @@ sudo apt install ./wkhtmltox_0.12.6-1.xenial_amd64.deb
 
 
 <!-- BEGIN -->
-<h3 id="fields">Model</h3> 
-
+<h3 id="fields">Model</h3>
 <p><strong>- Models And Basic Fields</strong></p>
 <pre>
 <code class="python">
@@ -312,6 +312,30 @@ docker-compose up -d
 </pre>
 <!-- END -->
 
+<!-- BEGIN -->
+<h3 id="shell">Pip library</h3> 
+<pre>
+<code class="bash">
+/etc/init.d/odoo stop
+su - odoo -s /bin/bash
+odoo shell -d db11-spain
+  
+mod=env['ir.module.module'].search([('name','=','purchase_request')])
+print(mod)
+
+products=env['product.template'].search([('type', '=', 'consu')])
+for product in products:
+    try:
+        print(product.id)
+        print('Modificando')
+        product.type = 'product'
+    except:
+        print('error')
+env.cr.commit()
+/etc/init.d/odoo start
+</code>
+</pre>
+<!-- END -->
 
 <!-- BEGIN -->
 <h3 id="shell">Shell Odoo</h3> 
