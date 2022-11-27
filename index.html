@@ -316,23 +316,58 @@ docker-compose up -d
 <h3 id="shell">Pip library</h3> 
 <pre>
 <code class="bash">
-/etc/init.d/odoo stop
-su - odoo -s /bin/bash
-odoo shell -d db11-spain
-  
-mod=env['ir.module.module'].search([('name','=','purchase_request')])
-print(mod)
+ModuleNotFoundError: No module named 'babel' after installing babel
 
-products=env['product.template'].search([('type', '=', 'consu')])
-for product in products:
-    try:
-        print(product.id)
-        print('Modificando')
-        product.type = 'product'
-    except:
-        print('error')
-env.cr.commit()
-/etc/init.d/odoo start
+pip install Babel==2.9.1  # min version = 2.6.0 (Focal with security backports)
+pip install chardet==3.0.4
+pip install cryptography==3.4.8
+pip install decorator==4.4.2
+pip install docutils==0.16
+pip install ebaysdk==2.1.5
+pip install freezegun==0.3.11; python_version < '3.8'
+pip install freezegun==0.3.15; python_version >= '3.8'
+pip install gevent==1.5.0 ; python_version == '3.7'
+pip install gevent==20.9.0 ; python_version > '3.7' and python_version <= '3.9'
+pip install gevent==21.8.0 ; python_version > '3.9'  # (Jammy)
+pip install greenlet==0.4.15 ; python_version == '3.7'
+pip install greenlet==0.4.17 ; python_version > '3.7' and python_version <= '3.9'
+pip install greenlet==1.1.2 ; python_version  > '3.9'  # (Jammy)
+pip install idna==2.8
+pip install Jinja2==2.11.3 # min version = 2.10.1 (Focal - with security backports)
+pip install libsass==0.18.0
+pip install lxml==4.6.5 # min version = 4.5.0 (Focal - with security backports)
+pip install MarkupSafe==1.1.0
+pip install num2words==0.5.6
+pip install ofxparse==0.19; python_version <= '3.9'
+pip install ofxparse==0.21; python_version > '3.9'  # (Jammy)
+pip install passlib==1.7.3 # min version = 1.7.2 (Focal with security backports)
+pip install Pillow==9.0.1  # min version = 7.0.0 (Focal with security backports)
+pip install polib==1.1.0
+pip install psutil==5.6.7 # min version = 5.5.1 (Focal with security backports)
+pip install psycopg2==2.7.7; sys_platform != 'win32' and python_version < '3.8'
+pip install psycopg2==2.8.6; sys_platform == 'win32' or python_version >= '3.8'
+pip install pydot==1.4.1
+pip install pyopenssl==19.0.0
+pip install PyPDF2==1.26.0
+pip install pypiwin32 ; sys_platform == 'win32'
+pip install pyserial==3.4
+pip install python-dateutil==2.7.3
+pip install python-ldap==3.4.0 ; sys_platform != 'win32'  # min version = 3.2.0 (Focal with security backports)
+pip install python-stdnum==1.13
+pip install pytz==2019.3
+pip install pyusb==1.0.2
+pip install qrcode==6.1
+pip install reportlab==3.5.59 # version < 3.5.54 are not compatible with Pillow 8.1.2 and 3.5.59 is bullseye
+pip install requests==2.25.1 # versions < 2.25 aren't compatible w/ urllib3 1.26. Bullseye = 2.25.1. min version = 2.22.0 (Focal)
+pip install urllib3==1.26.5 # indirect / min version = 1.25.8 (Focal with security backports)
+pip install vobject==0.9.6.1
+pip install Werkzeug==0.16.1 ; python_version <= '3.9'
+pip install Werkzeug==2.0.2 ; python_version > '3.9'  # (Jammy)
+pip install xlrd==1.1.0; python_version < '3.8'
+pip install xlrd==1.2.0; python_version >= '3.8'
+pip install XlsxWriter==1.1.2
+pip install xlwt==1.3.*
+pip install zeep==3.4.0
 </code>
 </pre>
 <!-- END -->
