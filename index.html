@@ -142,6 +142,18 @@ grep "2021-04-28 06:55:52,330 43141" /var/log/odoo/odoo-server.log -B 50
 service odoo restart
 </code>
 </pre>
+
+<p><strong>- Udate Odoo for shell</strong></p>
+<pre>
+<code class="bash">
+/etc/init.d/odoo stop
+su - odoo -s /bin/bash
+odoo -d db11-spain -u all --stop-after-init --logfile=/dev/stdout
+odoo -d db16-spain -u sis_base --i18n-overwrite --stop-after-init --logfile=/dev/stdout
+/etc/init.d/odoo start
+</code>
+</pre>
+
 <!-- END -->
 
 
