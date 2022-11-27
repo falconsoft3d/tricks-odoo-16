@@ -1,0 +1,1 @@
+# tricks-odoo-16
