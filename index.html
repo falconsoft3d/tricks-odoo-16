@@ -80,6 +80,7 @@
       
       <li><strong>Dev</strong></li>
       <li><a href="#fields" class="cc-active">Models And Basic Fields</a></li>
+      <li><a href="#onchange" class="cc-active">Onchange function</a></li>
       
       <li><strong>Other</strong></li>
       <li><a href="#about" class="cc-active">About me</a></li>
@@ -271,7 +272,28 @@ account_type = fields.Selection(
           help="Account Type is used for information purpose, to generate country-specific legal reports, and set the rules to close a fiscal year and generate opening entries."
       )
 
+reconcile = fields.Boolean(string='Allow Reconciliation', tracking=True,
+      compute='_compute_reconcile', store=True, readonly=False,
+      help="Check this box if this account allows invoices & payments matching of journal items.")
 
+@api.depends('account_type')
+def _compute_reconcile(self):
+    for account in self:
+        account.reconcile = account.account_type in ('asset_receivable', 'liability_payable')
+
+</code>
+</pre>
+<!-- END -->
+
+<h3 id="onchange">Onchange function</h3> 
+<pre>
+<code class="python">
+@api.onchange('name')
+def _onchange_name(self):
+    code, name = self._split_code_name(self.name)
+    if code:
+        self.name = name
+        self.code = code
 </code>
 </pre>
 <!-- END -->
