@@ -60,6 +60,7 @@
       <li><strong>Odoo Installation</strong></li>
       <li><a href="#instodoo16" class="cc-active">Standard Installation</a></li>
       <li><a href="#commands16" class="cc-active">Commands</a></li>
+      <li><a href="#wkhtmltopdf" class="cc-active">Install wkhtmltopdf</a></li>
     </ul>
 
 
@@ -141,7 +142,37 @@ grep "2021-04-28 06:55:52,330 43141" /var/log/odoo/odoo-server.log -B 50
 service odoo restart
 </code>
 </pre>
+<!-- END -->
+
+
 <!-- BEGIN -->
+<h3 id="wkhtmltopdf">Install wkhtmltopdf</h3> 
+
+<p><strong>- Ubuntu 22.04/20.04:</strong></p>
+<pre>
+<code class="bash">
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb
+sudo apt install ./wkhtmltox_0.12.6-1.focal_amd64.deb
+</code>
+</pre>
+
+<p><strong>- Ubuntu 18.04:</strong></p>
+<pre>
+<code class="bash">
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.bionic_amd64.deb
+sudo apt install ./wkhtmltox_0.12.6-1.bionic_amd64.deb
+</code>
+</pre>
+
+<p><strong>- Ubuntu 16.04:</strong></p>
+<pre>
+<code class="bash">
+wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.xenial_amd64.deb
+sudo apt install ./wkhtmltox_0.12.6-1.xenial_amd64.deb
+</code>
+</pre>
+
+<!-- END -->
 
     </div>
   </div>
