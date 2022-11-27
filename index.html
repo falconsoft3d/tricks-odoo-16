@@ -59,12 +59,15 @@
     <ul class="docs-nav">
       <li><strong>Odoo Installation</strong></li>
       <li><a href="#instodoo16" class="cc-active">Standard Installation</a></li>
+      <li><a href="#commands16" class="cc-active">Commands</a></li>
     </ul>
 
 
     <!--  DATA  -->
     <div class="docs-content">
-      <h3 id="instodoo16">Odoo 16 Standard Installation</h3>      
+
+<!-- BEGIN -->
+<h3 id="instodoo16">Odoo 16 Standard Installation</h3>      
       <p> <strong>Odoo ERP</strong> is a suite of open source business apps that cover all your company needs: CRM, Website Builder, eCommerce, billing, accounting, manufacturing, warehouse, project management, inventory and much more. </p>
      
 <p><strong>- Update System</strong></p>
@@ -119,7 +122,26 @@ mkdir /opt/backup
 chown odoo: /opt/backup/ -R
 </code>
 </pre>
+<!-- END -->
 
+<!-- BEGIN -->
+<h3 id="commands16">Commands</h3> 
+
+<p><strong>- View Log</strong></p>
+<pre>
+<code class="bash">
+tail -f /var/log/odoo/odoo-server.
+grep "2021-04-28 06:55:52,330 43141" /var/log/odoo/odoo-server.log -B 50
+</code>
+</pre>
+
+<p><strong>- Restart Odoo</strong></p>
+<pre>
+<code class="bash">
+service odoo restart
+</code>
+</pre>
+<!-- BEGIN -->
 
     </div>
   </div>
